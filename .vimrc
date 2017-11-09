@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " Changed power line
+Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim' " Less customizable but smoother
 " Plugin 'bling/vim-airline' " Highly customizable
 
@@ -54,7 +55,10 @@ set softtabstop=4  " number of spaces added when hitting the <TAB>
 set tabstop=4      " number of spaces interpreted by vim from <TAB> key
 
 " Turn off the highlight bu typing ",space"
+let mapleader = "\<space>"
 nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader>h :bprev<CR>
+nnoremap <leader>l :bnext<CR>
 
 " Move vertically by visual lines, i.e. if there is something wrapped it will
 " move inside
@@ -78,6 +82,10 @@ colorscheme badwolf
 let g:badwolf_tabline = 2
 let g:badwolf_darkgutter = 1
 set cursorline
+
+" git-gutter options
+let g:gitgutter_realtime = 1
+let g:gitgutter_updatetime = 50
 
 " Powerline options
 set laststatus=2 " This will force to show the status line
