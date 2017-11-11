@@ -3,12 +3,20 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+
+" Set fzf for the fzf.vim plugin
+set rtp +=~/.fzf
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+" Interface for AG and fzf (Silver Searcher)
+Plugin 'mileszs/ack.vim'
+Plugin 'junegunn/fzf.vim'
 
 " Changed power line
 Plugin 'airblade/vim-gitgutter'
@@ -67,8 +75,15 @@ nnoremap k gk
 " Remap nexts center the screen around
 nnoremap n nzz
 nnoremap N Nzz
+nnoremap } }zz
+nnoremap { {zz
 " Remap escape to jk to ease the pain
 inoremap jk <esc>
+
+" fzf remappings
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>t :Lines<CR>
 
 " Trying to fix the fucking indentation in vim
 let g:tex_flavor='latex'
@@ -86,6 +101,9 @@ set cursorline
 " git-gutter options
 let g:gitgutter_realtime = 1
 let g:gitgutter_updatetime = 50
+
+" Enabling AG in ack
+let g:ackprg = 'ag --vimgrep'
 
 " Powerline options
 set laststatus=2 " This will force to show the status line
