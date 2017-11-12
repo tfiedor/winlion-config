@@ -18,10 +18,20 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'junegunn/fzf.vim'
 
+" EasyMotion for vimium-like movement around documents
+Plugin 'easymotion/vim-easymotion'
+
 " Changed power line
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/lightline.vim' " Less customizable but smoother
 " Plugin 'bling/vim-airline' " Highly customizable
+
+" Add syntactic highlights for big number of languages
+" Fixme: Does this work?
+Plugin 'sheerun/vim-polyglot'
+
+" Plugin for surrounding text with commas or tags
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
