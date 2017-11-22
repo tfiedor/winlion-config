@@ -18,6 +18,12 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'junegunn/fzf.vim'
 
+" Binding for python completion engine (jedi)
+Plugin 'davidhalter/jedi-vim'
+
+" Linting for bigger number of languages
+Plugin 'w0rp/ale'
+
 " EasyMotion for vimium-like movement around documents
 Plugin 'easymotion/vim-easymotion'
 
@@ -118,3 +124,6 @@ let g:ackprg = 'ag --vimgrep'
 " Powerline options
 set laststatus=2 " This will force to show the status line
 set linespace=2
+
+" Load specialized configuration for selected file types
+autocmd FileType markdown,rst source ~/.vim/prose.vim
