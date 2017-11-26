@@ -39,6 +39,15 @@ Plugin 'sheerun/vim-polyglot'
 " Plugin for surrounding text with commas or tags
 Plugin 'tpope/vim-surround'
 
+" Enables repeating for surround and commentary
+Plugin 'tpope/vim-repeat'
+
+" Allows quick toggling of comments through gcc/gc/gcgc notions
+Plugin 'tpope/vim-commentary'
+
+" Preview CSS colours in the vim
+Plugin 'ap/vim-css-color'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
