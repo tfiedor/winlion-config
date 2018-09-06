@@ -48,6 +48,10 @@ Plugin 'tpope/vim-commentary'
 " Preview CSS colours in the vim
 Plugin 'ap/vim-css-color'
 
+" Filesystem tree browsing
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/nerdtree'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -87,11 +91,21 @@ set expandtab      " turn tabulators to spaces
 set softtabstop=4  " number of spaces added when hitting the <TAB>
 set tabstop=4      " number of spaces interpreted by vim from <TAB> key
 
-" Turn off the highlight bu typing ",space"
+" Make whitespace (tabs and spaces) visible
+set list
+set listchars=tab:>-,space:·
+
+" Turn off the highlight by typing "<leader> "
 let mapleader = "\<space>"
 nnoremap <leader><space> :nohlsearch<CR>
 nnoremap <leader>h :bprev<CR>
 nnoremap <leader>l :bnext<CR>
+
+" Remap for quick AG usage
+nnoremap <leader>a :Ag 
+
+" Map nerdtree stuff
+map <leader>n <plug>NERDTreeTabsToggle<CR>
 
 " Move vertically by visual lines, i.e. if there is something wrapped it will
 " move inside
