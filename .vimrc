@@ -150,3 +150,4 @@ set linespace=2
 
 " Load specialized configuration for selected file types
 autocmd FileType markdown,rst source ~/.vim/prose.vim
+" autocmd FileType tex,latex colorscheme gruvbox
