@@ -129,6 +129,7 @@ let g:tex_flavor='latex'
 let g:tex_indent_brace=0
 let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|mydef\|abstract\|itemize'
 let g:tex_itemize_env = ''
+let g:tex_indent_items=0
 
 colorscheme badwolf
 
