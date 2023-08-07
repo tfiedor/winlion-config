@@ -1,4 +1,5 @@
-set PATH "$HOME/.local/bin" $PATH
+set JAVA_HOME "/usr/lib/jvm/openjdk-15-jdk"
+set PATH "$HOME/.local/bin" $PATH "$JAVA_HOME/bin"
 
 # Load Oh My Fish configuration.
 begin
@@ -8,8 +9,24 @@ begin
     end
 end
 
+# Other commands
+alias alert="printf '\7'"
+
+# Paper commands
+alias maketoc="ls --color=no -1 *.tex > .toc"
+
 # Running terminator 
-alias runterm="terminator -mf"
+function run_terminal
+    set -xg LIGHT_MODE false && terminator -mf&
+end
+
+function run_light_terminal
+    set -xg LIGHT_MODE true && terminator -mf --profile=light&
+end
+alias dep-graph="python3 ~/utils/dependency-graph/dependency_graph.py"
+alias prefekt="perfaide"
+alias darkvim="set -xg LIGHT_MODE false && vim"
+alias lightvim="set -xg LIGHT_MODE true && vim"
 
 # `git log`-like for Mercurial
 alias hglog="hg log --template '{node|short} | {date|isodatesec} | {author|user}: {desc|strip|firstline}\n'"
@@ -25,13 +42,23 @@ alias cdr="cd -"
 # Loopus specific compilation
 alias loopus-compile="clang-3.5 -g -emit-llvm -DCLOOPUS -c"
 
-# Ptyhon specific commands
+# Python specific commands
 alias pyprofile="python3 -m cProfile"
 alias pystats="python3 -m pstats"
-alias pytest="python3 -m pytest --cov=./ --cov-report term-missing"
+alias pytest="python3 -m pytest --cov=./ --cov-report term-missing:skip-covered"
 alias pytest-fails="python3 -m pytest --cov=./ --cov-report term-missing --lf"
 alias pylint-diff="command git diff-index --name-only HEAD | grep .py | xargs pylint"
 alias pylint="python3 -m pylint"
+alias pywheel="python3 setup.py sdist bdist_wheel --bdist-dir ~/temp/bdistwheel/"
+
+# ELK aliases
+alias start-elastic="sudo -i service elasticsearch start"
+alias stop-elastic="sudo -i service elasticsearch stop"
+alias ping-elastic="curl -i -H \"Accept: application/json\" -H \"Content-Type: application/json\" -X GET http://localhost:9200"
+alias start-kibana="sudo -i service kibana start"
+alias stop-kibana="sudo -i service kibana stop"
+alias run-kibana="/usr/share/kibana/bin/kibana --logging.dest=/var/log/kibana/kibana.log"
+
 
 set TERM xterm-256color
 set -x DISPLAY :0.0

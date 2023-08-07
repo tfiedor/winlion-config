@@ -35,6 +35,7 @@ Plugin 'itchyny/lightline.vim' " Less customizable but smoother
 " Add syntactic highlights for big number of languages
 " Fixme: Does this work?
 Plugin 'sheerun/vim-polyglot'
+Plugin 'lambdalisue/vim-cython-syntax'
 
 " Plugin for surrounding text with commas or tags
 Plugin 'tpope/vim-surround'
@@ -127,11 +128,16 @@ nnoremap <leader>t :Lines<CR>
 " Trying to fix the fucking indentation in vim
 let g:tex_flavor='latex'
 let g:tex_indent_brace=0
-let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|mydef\|abstract\|itemize'
+let g:tex_noindent_env = 'document\|verbatim\|lstlisting\|mydef\|abstract\|itemize\|enumerate\|paragraph\|inparaenum'
 let g:tex_itemize_env = ''
 let g:tex_indent_items=0
 
-colorscheme badwolf
+if $LIGHT_MODE == "true"
+    set background=light
+    colorscheme PaperColor
+else
+    colorscheme badwolf
+endif
 
 " Make the tab line lighter than the background
 let g:badwolf_tabline = 2
