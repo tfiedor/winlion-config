@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Interface for AG and fzf (Silver Searcher)
 Plugin 'mileszs/ack.vim'
+Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 
 " Binding for python completion engine (jedi)

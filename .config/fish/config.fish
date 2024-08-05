@@ -11,6 +11,7 @@ end
 
 # Other commands
 alias alert="printf '\7'"
+alias exit="wsl.exe -t Ubuntu"
 
 # Paper commands
 alias maketoc="ls --color=no -1 *.tex > .toc"
@@ -24,7 +25,6 @@ function run_light_terminal
     set -xg LIGHT_MODE true && terminator -mf --profile=light&
 end
 alias dep-graph="python3 ~/utils/dependency-graph/dependency_graph.py"
-alias prefekt="perfaide"
 alias darkvim="set -xg LIGHT_MODE false && vim"
 alias lightvim="set -xg LIGHT_MODE true && vim"
 
@@ -50,15 +50,6 @@ alias pytest-fails="python3 -m pytest --cov=./ --cov-report term-missing --lf"
 alias pylint-diff="command git diff-index --name-only HEAD | grep .py | xargs pylint"
 alias pylint="python3 -m pylint"
 alias pywheel="python3 setup.py sdist bdist_wheel --bdist-dir ~/temp/bdistwheel/"
-
-# ELK aliases
-alias start-elastic="sudo -i service elasticsearch start"
-alias stop-elastic="sudo -i service elasticsearch stop"
-alias ping-elastic="curl -i -H \"Accept: application/json\" -H \"Content-Type: application/json\" -X GET http://localhost:9200"
-alias start-kibana="sudo -i service kibana start"
-alias stop-kibana="sudo -i service kibana stop"
-alias run-kibana="/usr/share/kibana/bin/kibana --logging.dest=/var/log/kibana/kibana.log"
-
 
 set TERM xterm-256color
 set -x DISPLAY :0.0
